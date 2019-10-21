@@ -29,10 +29,3 @@ $uriVars = $router->getRoute()['uriVars'];
 $controller->$method($uriVars);
 
 //echo '<pre>';var_dump($uriVars);echo '</pre>';
-
-
-
-
-
-
-
