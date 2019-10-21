@@ -9,7 +9,8 @@ use App\API\Core\Container;
 
 // routage
 $router = new Router();
-//echo '<pre>';var_dump($router->getRoute());echo '</pre>';
+
+//var_dump($router->getRoute());
 
 // container
 $container = new Container();
@@ -36,6 +37,3 @@ echo '<pre>';var_dump($dotenv->get('db_host'));echo '</pre>';
 // database
 /*$database = $container->get('core.database');
 var_dump($database->connect());*/
-
-
-
