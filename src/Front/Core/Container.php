@@ -7,10 +7,13 @@ class Container
 	public function get(string $idService)
 	{
 		$services = [
-			'controller.homepage' => function(){
+			'controller.homepage' => function () {
 				return new \App\Front\Controller\HomepageController();
 			},
-			'controller.not.found' => function(){
+			'controller.country' => function () {
+				return new \App\Front\Controller\CountryController();
+			},
+			'controller.not.found' => function () {
 				return new \App\Front\Controller\NotFoundController();
 			}
 		];
