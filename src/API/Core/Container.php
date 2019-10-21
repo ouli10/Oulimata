@@ -9,24 +9,34 @@ class Container
 	public function get(string $idService)
 	{
 		$this->services = [
-			'controller.homepage' => function(){
+			'controller.homepage' => function () {
 				return new \App\API\Controller\HomepageController(
 					$this->services['repository.city']()
 				);
 			},
-			'controller.not.found' => function(){
+			'controller.not.found' => function () {
 				return new \App\API\Controller\NotFoundController();
 			},
-			'core.dotenv' => function(){
+			'core.dotenv' => function () {
 				return new \App\API\Core\Dotenv();
 			},
-			'core.database' => function(){
+			'core.database' => function () {
 				return new \App\API\Core\Database(
 					$this->services['core.dotenv']()
 				);
 			},
-			'repository.city' => function(){
+			'repository.city' => function () {
 				return new \App\API\Repository\CityRepository(
+					$this->services['core.database']()
+				);
+			},
+			'controller.country' => function () {
+				return new \App\API\Controller\CountryController(
+					$this->services['repository.country']()
+				);
+			},
+			'repository.country' => function () {
+				return new \App\API\Repository\CountryRepository(
 					$this->services['core.database']()
 				);
 			},
